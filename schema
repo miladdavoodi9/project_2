@@ -1,0 +1,64 @@
+
+DROP TABLE ira_users;
+DROP TABLE twitter_IRA_tweets;
+DROP TABLE ira_tweets;
+
+CREATE TABLE ira_tweets (
+external_author_id NUMERIC,
+author VARCHAR,
+content TEXT,
+region VARCHAR,
+language VARCHAR,
+publish_date TIMESTAMP,
+harvested_date TIMESTAMP,
+following INT,
+followers INT,
+updates INT,
+post_type VARCHAR,
+account_type VARCHAR,
+new_june_2018 BOOLEAN,
+retweet BOOLEAN,
+account_category VARCHAR,
+PRIMARY KEY (external_author_id)
+);
+
+CREATE TABLE ira_users (
+userid NUMERIC,
+user_display_name VARCHAR,
+user_screen_name VARCHAR,
+user_reported_location TEXT,
+user_profile_description TEXT,
+user_profile_url VARCHAR,
+follower_count INT,
+following_count INT,
+account_creation_date DATE,
+account_language VARCHAR,
+FOREIGN KEY (userid) REFERENCES ira_tweets(external_author_id)
+);
+-- DROP TABLE twitter_IRA_tweets;
+CREATE TABLE twitter_IRA_tweets (
+userid NUMERIC,
+user_display_name VARCHAR,
+user_screen_name VARCHAR,
+user_reported_location VARCHAR,
+user_profile_description TEXT,
+follower_count VARCHAR,
+following_count VARCHAR,
+acount_creation_date DATE,
+tweet_language VARCHAR,
+tweet_text TEXT,
+tweet_time TIMESTAMP,
+tweet_client_name VARCHAR,
+quoted_tweet_tweetid VARCHAR,
+is_retweet VARCHAR,
+retweet_userid VARCHAR,
+retweet_tweetid VARCHAR,
+quote_count VARCHAR,
+reply_count VARCHAR,
+like_count VARCHAR,
+retweet_count VARCHAR,
+hashtags VARCHAR,
+user_mentions VARCHAR,
+poll_choices VARCHAR,
+FOREIGN KEY (userid) REFERENCES ira_tweets(external_author_id)
+);
