@@ -1,4 +1,4 @@
-# ETL Project
+# ETL 
 
 This repo serves as the ETL project on Russion Troll Tweets, with contributions by Dyna Wilston, Rob Creel, Rigo Aguado, Maria Ugaz. The project aggregates Russion Troll Twitter data downloaded from Twitter and from Kaggle.
 
